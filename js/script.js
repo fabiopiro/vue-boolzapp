@@ -88,36 +88,25 @@ var app = new Vue (
                     ],
                 },
             ],
+            activeContact: 0,
         },
         methods: {
-            getContactAvatar: function(contact) {
-                return `img/avatar${contact.avatar}.jpg`;
-            },
+            
             getLastMessage: function(contact) {
                 return contact.messages[contact.messages.length-1];
-            }
-            /* correzzione by Gianluca
+            },
+
+            getContact: function(index) {
+                this.activeContact = index;
+            },
+            getLastAcces: function(index) {
+                const lastMessage = this.contacts[index].messages;
+
+                return lastMessage[lastMessage.length - 1].date;
+            },
             getContactAvatar: function(index) {
-
-                // destrutturazione
-                const { avatar } = this.contacts[index];
-
-                return `img/avatar${avatar}.jpg`;
-            },
-            
-            getLastMessageDate: function(index) {
-                const lastMessageIndex = this.contacts[index].message.length - 1;
-
-                return this.contacts[index].message[lastMessageIndex].date;
-            },
-
-            getLastMessageText: function() {
-                const lastMessageIndex = this.contacts[index].message.length - 1;
-
-                return this.contacts[index].message[lastMessageIndex].message
+                return `img/avatar${this.contacts[index].avatar}.jpg`
             }
-            */
-
-        },
+        }    
     }
 );

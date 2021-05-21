@@ -70,10 +70,13 @@
                 <div id="contacts">
                     <!-- Contact Item -->
                     <!-- v-for -->
-                    <div v-for ="(contact, index) in contacts" class="contacts-item">
+                    <div v-for ="(contact, index) in contacts" 
+                    :class="(index == activeContact) ? 'active' : '' "
+                    @click="getContact(index)"
+                    class="contacts-item">
                         <div class="contact-avatar">
                             <!-- v-bind -->
-                            <img v-bind:src="getContactAvatar(contact)" alt="">
+                            <img v-bind:src="getContactAvatar(index)" alt="">
                         </div>
                         <div class="contact-info">
                             <span class="contact-name">{{contact.name}}</span>
@@ -93,11 +96,11 @@
                     <!-- contact -->
                     <div id="current-contact">
                         <div class="avatar-container">
-                            <img src="img/avatar_1.jpg" alt="">
+                            <img :src="getContactAvatar(activeContact)" alt="">
                         </div>
                         <div id="current-contact-info">
-                            <span>Nome Utente</span>
-                            <span>Ultimo accesso...</span>
+                            <span>{{ contacts[activeContact].name }}</span>
+                            <span> {{ getLastAcces(activeContact)}} </span>
                         </div>
                     </div>
                     <!-- /contact -->
@@ -114,14 +117,22 @@
                 <div id="chat-container">
                     <!-- chat text -->
                     <div id="chat-text">
-                        <div class="message sent">
+                        <div 
+                        v-for="message in contacts[activeContact].messages"
+                        class="message"
+                        :class="(message.status == 'sent') ? 'sent' : 'received'"
+                        >
+                            <span class="message-text">{{ message.text }}</span>
+                            <span class="message-date">{{ message.date }}</span>
+                        </div>
+                        <!-- <div class="message sent">
                             <span class="message-text">messaggio molto lungo prova prova</span>
                             <span class="message-date">data 00:00:00</span>
                         </div>
                         <div class="message received">
                             <span class="message-text">messaggio</span>
                             <span class="message-date">data 00:00:00</span>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- /chat text -->
                     <div id="chat-message">

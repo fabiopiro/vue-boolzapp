@@ -138,7 +138,9 @@ body {
     display: flex;
     border-bottom: 1px solid lightgrey;
 }
-
+.active {
+    background-color: #e9ebeb;
+}
 .contact-avatar img {
     height: 60px;
     width: 60px;
