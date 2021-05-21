@@ -173,55 +173,47 @@ body {
 }
 /* CHAT */
 #chat-container {
-    position: relative;
     height: calc(100% - 70px);
 }
 #chat-text {
     height: calc(100% - 70px);
-    background-color: indigo;
     overflow-y: auto;  
     background-image: url(../img/mine.jpg);
     padding: 50px;
+
     display: flex;
     flex-direction: column;
+}
+
+.message {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.message-text {
+    align-self: flex-start;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin-right: 50px;
 
 }
-/* .message-row {
-    width: 100%;
-}
-.message {
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    max-width: 300px;
+.message-date {
+    align-self: flex-end;
+    padding-bottom: 5px;
+    color: lightgray ;
+    font-size: 12px;
 }
 .sent {
     background-color: #d5f9ba;
-    float: right;
+    align-self: flex-end;
 }
 .received {
     background-color: white;
-    float: left;
+    align-self: flex-start;
 }
-.message-date {
-    display: flex;
-    align-self: flex-end;
-    color: lightgray;
-    font-size: 12px;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #chat-message {
