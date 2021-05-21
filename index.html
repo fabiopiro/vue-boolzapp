@@ -20,39 +20,128 @@
     </div>
     <div id="background-bottom">
     </div>
+    <!-- wrapper -->
     <div id="wrapper">
         <!-- vue app -->
-        <div id="app" class="clearfix">
+        <div id="app">
+            <!-- LEFT -->
             <div id="left">
-                <div id="nav-left">
-
+                <!-- nav-left -->
+                <div id="nav">
+                    <!-- user -->
+                    <div id="user">
+                        <div class="avatar-container">
+                            <img src="img/avatar_1.jpg" alt="">
+                        </div>
+                        <span id="user-name">Nome Utente</span>
+                    </div>
+                    <!-- /user -->
+                    <!-- nav icons -->
+                    <div id="nav-icons">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <!-- /nav icons -->
                 </div>
+                <!-- /nav-left -->
+                <!-- notification -->
                 <div id="notification">
-    
+                    <div id="notification-icon">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <div id="notification-text">
+                        <span>Ricevi notifiche dei nuovi messaggi</span>
+                        <span>Attiva notifiche desktop</span>
+                    </div>
                 </div>
-                <div id="search-bar-left">
-
+                <!-- /notification -->
+                <!-- search bar -->
+                <div id="search-bar">
+                    <button id="search-bar-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div id="search-bar-text">
+                        <input type="text">
+                    </div>
                 </div>
+                <!-- /search bar -->
+                <!-- contacts List -->
                 <div id="contacts">
-
+                    <!-- Contact Item -->
+                    <!-- v-for -->
+                    <div v-for ="(contact, index) in contacts" class="contacts-item">
+                        <div class="contact-avatar">
+                            <!-- v-bind -->
+                            <img v-bind:src="getContactAvatar(contact)" alt="">
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-name">{{contact.name}}</span>
+                            <span class="contact-last-message">{{getLastMessage(contact).text}}</span>
+                        </div>
+                        <span class="date">{{getLastMessage(contact).date}}</span>
+                    </div>
+                    <!-- Contact Item -->
                 </div>
-
+                <!-- /Contacts List -->
             </div>
+            <!-- /LEFT -->
+            <!-- RIGHT -->
             <div id="right">
-                <div id="nav-right">
+                <!-- nav-right -->
+                <div id="nav">
+                    <!-- contact -->
+                    <div id="current-contact">
+                        <div class="avatar-container">
+                            <img src="img/avatar_1.jpg" alt="">
+                        </div>
+                        <div id="current-contact-info">
+                            <span>Nome Utente</span>
+                            <span>Ultimo accesso...</span>
+                        </div>
+                    </div>
+                    <!-- /contact -->
+                    <!-- nav icons -->
+                    <div id="nav-icons">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <!-- /nav icons -->
                 </div>
+                <!-- /nav-right -->
                 <div id="chat-container">
                     <div id="chat-text">
-
+                        <!-- <div class="message-row">
+                            <div class="message sent">
+                                <span>Messaggio</span>
+                                <span class="message-date">10:10 20.20.2000</span>
+                            </div>
+                        </div>
+                        <div class="message-row">
+                            <div class="message received">
+                                <span>Messaggio</span>
+                            </div>
+                        </div> -->
                     </div>
                     <div id="chat-message">
-
+                        <div class="chat-icon">
+                            <i class="far fa-smile"></i>
+                        </div>
+                        <div id="chat-input">
+                            <input type="text">
+                        </div>
+                        <div class="chat-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- /RIGHT -->
         </div>
         <!-- /vue app -->
     </div>
+    <!-- /wrapper -->
 
 
 
