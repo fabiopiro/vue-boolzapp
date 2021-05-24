@@ -126,10 +126,22 @@ var app = new Vue (
 
                     this.currentMessage = "";
 
-                    
+                    // RISPOSTA
+
+                    setTimeout(this.answerMessage,1000);
 
                 }
-            }
+            },
+
+            answerMessage: function() {
+                this.contacts[this.activeContact].messages.push({
+
+                    date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                    text: "ok",
+                    status: "received",
+
+                });
+            },
 
         }    
     }
