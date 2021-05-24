@@ -103,6 +103,9 @@ body {
 #notification-text span {
     display: block;
 }
+#notification a {
+    color: gray;
+}
 /* search bar */
 #search-bar {
     height: 50px;
@@ -118,7 +121,9 @@ body {
     width: 20%;
     border: 1px solid #f5f5f5;
     background-color: white;
+    color: gray;
     border-right: none;
+    font-size: 18px;
 }
 #search-bar-text input{
     width: 100%;
@@ -172,6 +177,10 @@ body {
 /* nav */
 #current-contact-info span {
     display: block;
+}
+#current-contact-last-acces {
+    color: gray;
+    font-size: 12px;
 }
 /* CHAT */
 #chat-container {
@@ -235,6 +244,8 @@ body {
     border-radius: 5px;
     overflow: hidden;
     border: none;
+    font-size: 18px;
+    padding: 0 10px;
 }
 .chat-icon i {
     font-size: 25px;

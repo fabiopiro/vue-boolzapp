@@ -88,7 +88,11 @@ var app = new Vue (
                     ],
                 },
             ],
+
             activeContact: 0,
+
+            
+
         },
         methods: {
             
@@ -99,14 +103,18 @@ var app = new Vue (
             getContact: function(index) {
                 this.activeContact = index;
             },
+        
             getLastAcces: function(index) {
                 const lastMessage = this.contacts[index].messages;
 
                 return lastMessage[lastMessage.length - 1].date;
             },
+
             getContactAvatar: function(index) {
                 return `img/avatar${this.contacts[index].avatar}.jpg`
-            }
+            },
+
+
         }    
     }
 );
