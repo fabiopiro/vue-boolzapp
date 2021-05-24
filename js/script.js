@@ -91,7 +91,9 @@ var app = new Vue (
 
             activeContact: 0,
 
-            currentMessage:"",
+            currentMessage: "",
+
+            search: "",
 
         },
         methods: {
@@ -99,6 +101,7 @@ var app = new Vue (
             getLastMessage: function(contact) {
                 return contact.messages[contact.messages.length-1];
             },
+
 
             getContact: function(index) {
                 this.activeContact = index;
@@ -127,7 +130,7 @@ var app = new Vue (
                     this.currentMessage = "";
 
                     // RISPOSTA
-
+                    
                     setTimeout(this.answerMessage,1000);
 
                 }
@@ -142,6 +145,21 @@ var app = new Vue (
 
                 });
             },
+
+            searchName: function() {
+
+                for (var i = 0; i < this.contacts.length; i++) {
+
+                    if (this.contacts[i].name.toLowerCase().startsWith(this.search.toLowerCase())) {
+                        this.contacts[i].visible = true;
+                    }
+                    else {
+                        this.contacts[i].visible = false;
+                    }
+
+                };
+
+            }
 
         }    
     }

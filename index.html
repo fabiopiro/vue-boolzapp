@@ -66,7 +66,11 @@
                         <i class="fas fa-search"></i>
                     </button>
                     <div id="search-bar-text">
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input
+                        @keyup="searchName"
+                        v-model="search"
+                        type="text" 
+                        placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
                 <!-- /search bar -->
@@ -77,7 +81,8 @@
                     <div v-for ="(contact, index) in contacts" 
                     :class="(index == activeContact) ? 'active' : '' "
                     @click="getContact(index)"
-                    class="contacts-item">
+                    class="contacts-item"
+                    v-show="(contact.visible == true)">
                         <div class="contact-avatar">
                             <!-- v-bind -->
                             <img v-bind:src="getContactAvatar(index)" alt="">
