@@ -91,7 +91,7 @@ var app = new Vue (
 
             activeContact: 0,
 
-            
+            currentMessage:"",
 
         },
         methods: {
@@ -114,6 +114,22 @@ var app = new Vue (
                 return `img/avatar${this.contacts[index].avatar}.jpg`
             },
 
+            sendMessage: function() {
+
+                if (this.currentMessage.trim().length > 0) {
+
+                    this.contacts[this.activeContact].messages.push({
+                        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                        text: this.currentMessage,
+                        status: "sent",
+                    });
+
+                    this.currentMessage = "";
+
+                    
+
+                }
+            }
 
         }    
     }
