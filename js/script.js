@@ -102,7 +102,6 @@ var app = new Vue (
                 return contact.messages[contact.messages.length-1];
             },
 
-
             getContact: function(index) {
                 this.activeContact = index;
             },
@@ -132,6 +131,18 @@ var app = new Vue (
                     // RISPOSTA
                     
                     setTimeout(this.answerMessage,1000);
+                    /*
+                    setTimeout(() => {
+
+                      this.contacts[this.activeContact].messages.push({
+
+                        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                        text: "ok",
+                        status: "received",
+
+                    });
+                    },1000);
+                    */
 
                 }
             },

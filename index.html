@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Vue CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <!-- dayjs CDN -->
+    <!-- Dayjs CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Google Fonts - Roboto 400 & 700 -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -25,11 +25,11 @@
     <!-- wrapper -->
     <div id="wrapper">
         <!-- vue app -->
-        <div id="app">
-            <!-- LEFT -->
+        <div id="app" class="clearfix">
+            <!-- LEFT LEFT LEFT-->
             <div id="left">
                 <!-- nav-left -->
-                <div id="nav">
+                <div id="nav-left">
                     <!-- user -->
                     <div id="user">
                         <div class="avatar-container">
@@ -39,7 +39,7 @@
                     </div>
                     <!-- /user -->
                     <!-- nav icons -->
-                    <div id="nav-icons">
+                    <div class="nav-icons">
                         <i class="fas fa-circle-notch"></i>
                         <i class="fas fa-comment-alt"></i>
                         <i class="fas fa-ellipsis-v"></i>
@@ -78,13 +78,13 @@
                 <div id="contacts">
                     <!-- Contact Item -->
                     <!-- v-for -->
-                    <div v-for ="(contact, index) in contacts" 
-                    :class="(index == activeContact) ? 'active' : '' "
-                    @click="getContact(index)"
+                    <div 
                     class="contacts-item"
+                    @click="getContact(index)"
+                    :class="(index == activeContact) ? 'active' : '' "
+                    v-for ="(contact, index) in contacts" 
                     v-show="(contact.visible == true)">
                         <div class="contact-avatar">
-                            <!-- v-bind -->
                             <img v-bind:src="getContactAvatar(index)" alt="">
                         </div>
                         <div class="contact-info">
@@ -97,11 +97,11 @@
                 </div>
                 <!-- /Contacts List -->
             </div>
-            <!-- /LEFT -->
+            <!-- /LEFT LEFT LEFT-->
             <!-- RIGHT -->
             <div id="right">
                 <!-- nav-right -->
-                <div id="nav">
+                <div id="nav-right">
                     <!-- contact -->
                     <div id="current-contact">
                         <div class="avatar-container">
@@ -114,7 +114,7 @@
                     </div>
                     <!-- /contact -->
                     <!-- nav icons -->
-                    <div id="nav-icons">
+                    <div class="nav-icons">
                         <i class="fas fa-search"></i>
                         <i class="fas fa-paperclip"></i>
                         <i class="fas fa-ellipsis-v"></i>
@@ -131,6 +131,7 @@
                         class="message"
                         :class="(message.status == 'sent') ? 'sent' : 'received'"
                         >
+                        <!-- :class="message.status" -->
                             <span class="message-text">{{ message.text }}</span>
                             <span class="message-date">{{ message.date }}</span>
                         </div>
@@ -168,11 +169,8 @@
         <!-- /vue app -->
     </div>
     <!-- /wrapper -->
-
-
-
-
-    <!-- JS -->
+    <!-- js -->
     <script src="js/script.js"></script>
+    <!-- /js -->
 </body>
 </html>
